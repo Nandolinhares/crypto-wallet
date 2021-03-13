@@ -1,9 +1,12 @@
 import React from 'react'
-import './app.css'
+import { Container } from '@material-ui/core'
+import Login from '@/presentation/components/login/login.component'
 
 const App: React.FC = () => {
   return (
-    <h1 data-testid="h1">CRYPTO WALLET</h1>
+    <Container maxWidth="md">
+      <Login />
+    </Container>
   )
 }
 
