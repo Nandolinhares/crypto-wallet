@@ -3,7 +3,7 @@ import './app.css'
 
 const App: React.FC = () => {
   return (
-    <h1 data-testid="h1">Hello World</h1>
+    <h1 data-testid="h1">CRYPTO WALLET</h1>
   )
 }
 
