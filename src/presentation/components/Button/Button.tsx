@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
       style={{ backgroundColor }}
       {...props}
     >
-      {label}Hello
+      {label}
     </button>
   )
 }
