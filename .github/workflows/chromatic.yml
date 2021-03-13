@@ -25,5 +25,6 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       - name: Coveralls Teste
+        #adding coveraals token 
         repo_token: 1Hrt59bmgRUKGgHXjPjKmnNlOKl5XCGrf
         run: yarn run test:coveralls    
