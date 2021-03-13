@@ -24,3 +24,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - name: Coveralls Teste
+        repo_token: 1Hrt59bmgRUKGgHXjPjKmnNlOKl5XCGrf
+        run: yarn run test:coveralls    

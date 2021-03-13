@@ -1,5 +1,5 @@
 import React from 'react'
-import App from '@/presentation/components/App'
+import { App } from '@/presentation/pages/home'
 
 const MakeApp: React.FC = () => <App />
 
