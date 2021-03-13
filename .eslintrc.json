@@ -16,6 +16,7 @@
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-redeclare": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "@typescript-eslint/no-use-before-define": "off"
