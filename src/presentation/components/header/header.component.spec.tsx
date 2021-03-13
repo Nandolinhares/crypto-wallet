@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from './login.component'
+import Header from './header.component'
 import { render, RenderResult } from '@testing-library/react'
 
 type SutTypes = {
@@ -8,7 +8,7 @@ type SutTypes = {
 
 const makeSut = (): SutTypes => {
   const sut = render(
-    <Login />
+    <Header />
   )
 
   return {
@@ -21,5 +21,11 @@ describe('App Component', () => {
     const { sut } = makeSut()
     const h1 = sut.getByTestId('h1')
     expect(h1.textContent).toBe('CRYPTO WALLET')
+  })
+
+  test('should have 2 buttons on header', () => {
+    const { sut } = makeSut()
+    const ul = sut.getByTestId('ul')
+    expect(ul.childElementCount).toBe(2)
   })
 })
