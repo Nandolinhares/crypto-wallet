@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from '@/components/App'
+import Router from '@/presentation/router'
+import { MakeApp } from '@/main/factories/pages/home'
 
-ReactDOM.render(<App />, document.getElementById('main'))
+ReactDOM.render(<Router makeApp={MakeApp} />, document.getElementById('main'))
