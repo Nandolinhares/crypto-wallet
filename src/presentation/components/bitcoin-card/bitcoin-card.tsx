@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 // Get Bitcoins
-import { makeGetBitcoinValue } from '@/main/factories/usecases/get-bitcoin-value-factory'
-import { BitcoinResultInterface } from '@/domain/models/bitcoin-result.interface'
+import { makeGetBitcoinValue } from '../../../main/factories/usecases/get-bitcoin-value-factory'
+import { BitcoinResultInterface } from '../../../domain/models/bitcoin-result.interface'
 import CircularProgressWithLabel from '../loading-with-counter/loading-with-counter'
+import axios from 'axios'
 
 const useStyles = makeStyles({
   paper: {
@@ -40,9 +41,14 @@ const BitcoinCard: React.FC = () => {
   const [progress, setProgress] = useState<number>(100)
 
   // Functions calls makeGetBicoin, and then calls API using axios get
-  const bitcoinsCallBack = async (): Promise<BitcoinResultInterface> => {
-    const httpResponse = await makeGetBitcoinValue().show()
-    setBitcoinValue(parseFloat(httpResponse.ticker.last).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }))
+  const bitcoinsCallBack = async (cancelToken: any): Promise<BitcoinResultInterface> => {
+    let httpResponse: any
+    try {
+      httpResponse = await makeGetBitcoinValue().show(cancelToken)
+      setBitcoinValue(parseFloat(httpResponse.ticker.last).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }))
+    } catch (error) {
+      httpResponse = error.response
+    }
     return httpResponse
   }
 
@@ -64,13 +70,22 @@ const BitcoinCard: React.FC = () => {
   }
 
   useEffect(() => {
+    // instância do CancelToken
+    const CancelToken = axios.CancelToken
+    // instância do source, onde está contido o token de cancelamento
+    const source = CancelToken.source()
+    // Quando o contador chega a 10, chama a API de novo
     if (counter === 10) {
-      bitcoinsCallBack()
+      bitcoinsCallBack(source.token)
     }
     setTimeout(() => {
       changeCounter()
       changeProgress()
     }, 1000)
+
+    return () => {
+      source.cancel() // Clean subscription
+    }
   }, [counter])
 
   return (
@@ -81,7 +96,7 @@ const BitcoinCard: React.FC = () => {
         <CircularProgressWithLabel value={progress} counter={counter} />
       </section>
       <h2>{bitcoinValue}</h2>
-      <p>83,26 bitcoins negociados nas últimas 24hs</p>
+      <p>83,26 bitcoins negociados nas últimas 24hs teste</p>
     </Paper>
   )
 }

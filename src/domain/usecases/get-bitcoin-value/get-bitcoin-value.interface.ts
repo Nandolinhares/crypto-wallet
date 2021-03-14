@@ -1,5 +1,5 @@
-import { BitcoinResultInterface } from '@/domain/models/bitcoin-result.interface'
+import { BitcoinResultInterface } from '../../../domain/models/bitcoin-result.interface'
 
 export interface GetBitcoinValue {
-  show: () => Promise<BitcoinResultInterface>
+  show: (cancelToken: any) => Promise<BitcoinResultInterface>
 }
