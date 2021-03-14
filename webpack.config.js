@@ -45,7 +45,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new DefinePlugin({
-      'process.env.API_URL': JSON.stringify('http://localhost:8080')
+      'process.env.API_BITCOIN_URL': JSON.stringify('https://www.mercadobitcoin.net/api/BTC/ticker/')
     })
   ]
 }
