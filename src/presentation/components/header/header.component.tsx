@@ -14,12 +14,15 @@ const useStyles = makeStyles({
       display: 'flex',
       alignItems: 'center'
     },
+    // Title
     '& h1': {
       fontWeight: 'bold'
     },
+    // Icon title
     '& .moneyIcon': {
       color: 'green'
     },
+    // Menu
     '& nav': {
       '& ul': {
         display: 'flex'
@@ -27,6 +30,17 @@ const useStyles = makeStyles({
       '& li': {
         listStyle: 'none',
         marginRight: 28
+      },
+      // Login Button
+      '& .buttonLogin': {
+        backgroundColor: 'green',
+        color: '#fff',
+        padding: '8px 28px'
+      },
+      // Signup Button
+      '& .buttonCadastrar': {
+        color: 'green',
+        padding: '8px 28px'
       }
     }
   }
@@ -44,13 +58,13 @@ const Header: React.FC = () => {
         <nav className="nav">
           <ul data-testid="ul">
             <li>
-              <Button variant="contained" color="primary">
-                Login
+              <Button variant="contained" className="buttonLogin">
+                ENTRAR
               </Button>
             </li>
             <li>
-              <Button variant="outlined" color="secondary">
-                SIGNUP
+              <Button variant="outlined" className="buttonCadastrar">
+                CADASTRAR
               </Button>
             </li>
           </ul>
