@@ -1,17 +1,18 @@
+import { BritaResultInterface } from '@/domain/models/brita-result.interface'
 import { HttpGetClient } from '../../../data/protocols/http/http-get-client'
 import { HttpStatusCode } from '../../../data/protocols/http/http-response'
 import { NotFoundError } from '../../../domain/errors/not-found-error'
 import { UnexpectedError } from '../../../domain/errors/unexpected-error'
 import { BitcoinResultInterface } from '../../../domain/models/bitcoin-result.interface'
-import { GetBitcoinValue } from '../../../domain/usecases/get-bitcoin-value/get-bitcoin-value.interface'
+import { GetCryptoValue } from '../../../domain/usecases/get-crypto-value/get-crypto-value.interface'
 
-export class GetBitcoins implements GetBitcoinValue {
+export class GetCrypto implements GetCryptoValue {
   constructor (
     private readonly url: string,
-    private readonly httpGetClient: HttpGetClient<BitcoinResultInterface>
+    private readonly httpGetClient: HttpGetClient<BitcoinResultInterface & BritaResultInterface>
   ) {}
 
-  async show (cancelToken: any): Promise<BitcoinResultInterface> {
+  async show (cancelToken: any): Promise<BitcoinResultInterface & BritaResultInterface> {
     const httpResponse = await this.httpGetClient.get(this.url, cancelToken)
 
     switch (httpResponse.statusCode) {

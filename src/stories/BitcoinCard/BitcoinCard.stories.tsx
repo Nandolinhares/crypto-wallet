@@ -9,4 +9,4 @@ export default {
   component: BitcoinCard
 } as Meta
 
-export const bitcoinCard = (): ReactElement => <BitcoinCard />
+export const bitcoinCard = (): ReactElement => <BitcoinCard value="Bitcoin" />
