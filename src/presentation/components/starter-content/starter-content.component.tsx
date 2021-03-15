@@ -2,8 +2,8 @@ import React from 'react'
 // MUI
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import CryptoCard from '../crypto-card/crypto-card'
 // Components
-import BitcoinCard from '../bitcoin-card/bitcoin-card'
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -28,7 +28,10 @@ const StarterContent: React.FC = () => {
           <p>Acesso, segurança e diversificação para você e mais de 2 milhões de clientes.</p>
         </Grid>
         <Grid item md={6}>
-         <BitcoinCard />
+         <CryptoCard value="Bitcoin" />
+        </Grid>
+        <Grid item md={6}>
+         <CryptoCard value="Brita" />
         </Grid>
       </Grid>
   )
