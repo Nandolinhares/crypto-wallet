@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Container } from '@material-ui/core'
+// Components
+import { Signup } from './pages'
 import { Header } from './components'
 
 type Props = {
@@ -10,10 +12,11 @@ type Props = {
 const Router: React.FC<Props> = ({ makeApp }: Props) => {
   return (
     <Container maxWidth="lg">
-      <Header />
       <BrowserRouter>
+      <Header />
         <Switch>
           <Route exact path="/" component={makeApp} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </BrowserRouter>
     </Container>

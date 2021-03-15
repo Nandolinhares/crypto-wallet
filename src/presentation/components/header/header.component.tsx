@@ -1,4 +1,6 @@
 import React from 'react'
+// RRD
+import { Link } from 'react-router-dom'
 // MUI
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
@@ -13,6 +15,10 @@ const useStyles = makeStyles({
     '& .logoDiv': {
       display: 'flex',
       alignItems: 'center'
+    },
+    '& .logoDiv a': {
+      textDecoration: 'none',
+      color: '#000'
     },
     // Title
     '& h1': {
@@ -53,17 +59,17 @@ const Header: React.FC = () => {
       <div className={classes.headerDiv}>
         <div className="logoDiv">
           <MonetizationOnOutlinedIcon className="moneyIcon" fontSize="large" />
-          <h1 data-testid="h1">CRYPTO WALLET</h1>
+          <a href="/"><h1 data-testid="h1">CRYPTO WALLET</h1></a>
         </div>
         <nav className="nav">
           <ul data-testid="ul">
             <li>
-              <Button variant="contained" className="buttonLogin">
+              <Button variant="contained" className="buttonLogin" component={Link} to="/login">
                 ENTRAR
               </Button>
             </li>
             <li>
-              <Button variant="outlined" className="buttonCadastrar">
+              <Button variant="outlined" className="buttonCadastrar" component={Link} to="/signup">
                 CADASTRAR
               </Button>
             </li>
