@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 // Components
-import { Signup } from './pages'
+import { Login, Signup } from './pages'
 import { Header } from './components'
 
 type Props = {
@@ -16,6 +16,7 @@ const Router: React.FC<Props> = ({ makeApp }: Props) => {
         <Header />
         <Switch>
           <Route exact path="/" component={makeApp} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </BrowserRouter>
