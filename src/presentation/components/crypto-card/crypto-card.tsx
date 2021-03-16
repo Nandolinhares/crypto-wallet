@@ -1,40 +1,13 @@
 import React, { useState, useEffect } from 'react'
 // MUI
-import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
+// Styles
+import { useStyles } from './crypto-card-styles'
 // Get Bitcoins
 import { makeGetBitcoinValue, makeGetBritaValue } from '../../../main/factories/usecases'
 import CircularProgressWithLabel from '../loading-with-counter/loading-with-counter'
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 import axios from 'axios'
-
-const useStyles = makeStyles({
-  paper: {
-    borderRadius: 8,
-    padding: 28,
-    '& .top': {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    },
-    // Title
-    '& .top h2': {
-      fontSize: 28
-    },
-    // Bitcoin Value
-    '& h2': {
-      textAlign: 'center',
-      borderBottom: '1px solid #e4e4e4'
-    },
-
-    '& p': {
-      fontSize: '18px !important'
-    },
-    '& .moneyIcon': {
-      color: 'green'
-    }
-  }
-})
 
 type Props = {
   value: string
