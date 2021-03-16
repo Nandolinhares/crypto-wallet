@@ -2570,7 +2570,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CreateAccount\": () => (/* binding */ CreateAccount)\n/* harmony export */ });\nclass CreateAccount {\r\n    constructor(setStorage) {\r\n        this.setStorage = setStorage;\r\n    }\r\n    create(username) {\r\n        this.setStorage.set(username, JSON.stringify({\r\n            username,\r\n            money: '100000'\r\n        }));\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/create-account/create-account.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CreateAccount\": () => (/* binding */ CreateAccount)\n/* harmony export */ });\nclass CreateAccount {\r\n    constructor(setStorage) {\r\n        this.setStorage = setStorage;\r\n    }\r\n    create(username) {\r\n        this.setStorage.set(username, JSON.stringify({\r\n            username,\r\n            money: '100000',\r\n            bitcoins: '0',\r\n            britas: '0'\r\n        }));\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/create-account/create-account.ts?");
+
+/***/ }),
+
+/***/ "./src/data/usecases/create-account/index.ts":
+/*!***************************************************!*\
+  !*** ./src/data/usecases/create-account/index.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CreateAccount\": () => (/* reexport safe */ _create_account__WEBPACK_IMPORTED_MODULE_0__.CreateAccount)\n/* harmony export */ });\n/* harmony import */ var _create_account__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-account */ \"./src/data/usecases/create-account/create-account.ts\");\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/create-account/index.ts?");
 
 /***/ }),
 
@@ -2582,6 +2593,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"GetCrypto\": () => (/* binding */ GetCrypto)\n/* harmony export */ });\n/* harmony import */ var _data_protocols_http_http_response__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../data/protocols/http/http-response */ \"./src/data/protocols/http/http-response.ts\");\n/* harmony import */ var _domain_errors_not_found_error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../domain/errors/not-found-error */ \"./src/domain/errors/not-found-error.ts\");\n/* harmony import */ var _domain_errors_unexpected_error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../domain/errors/unexpected-error */ \"./src/domain/errors/unexpected-error.ts\");\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\r\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\r\n    return new (P || (P = Promise))(function (resolve, reject) {\r\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\r\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\r\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\r\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\r\n    });\r\n};\r\n\r\n\r\n\r\nclass GetCrypto {\r\n    constructor(url, httpGetClient) {\r\n        this.url = url;\r\n        this.httpGetClient = httpGetClient;\r\n    }\r\n    show(cancelToken) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            const httpResponse = yield this.httpGetClient.get(this.url, cancelToken);\r\n            switch (httpResponse.statusCode) {\r\n                case _data_protocols_http_http_response__WEBPACK_IMPORTED_MODULE_0__.HttpStatusCode.ok: return httpResponse.body;\r\n                case _data_protocols_http_http_response__WEBPACK_IMPORTED_MODULE_0__.HttpStatusCode.notFound: throw new _domain_errors_not_found_error__WEBPACK_IMPORTED_MODULE_1__.NotFoundError();\r\n                default:\r\n                    throw new _domain_errors_unexpected_error__WEBPACK_IMPORTED_MODULE_2__.UnexpectedError();\r\n            }\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/get-crypto-value/get-crypto-value.ts?");
+
+/***/ }),
+
+/***/ "./src/data/usecases/get-crypto-value/index.ts":
+/*!*****************************************************!*\
+  !*** ./src/data/usecases/get-crypto-value/index.ts ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"GetCrypto\": () => (/* reexport safe */ _get_crypto_value__WEBPACK_IMPORTED_MODULE_0__.GetCrypto)\n/* harmony export */ });\n/* harmony import */ var _get_crypto_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get-crypto-value */ \"./src/data/usecases/get-crypto-value/get-crypto-value.ts\");\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/get-crypto-value/index.ts?");
+
+/***/ }),
+
+/***/ "./src/data/usecases/index.ts":
+/*!************************************!*\
+  !*** ./src/data/usecases/index.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CreateAccount\": () => (/* reexport safe */ _create_account__WEBPACK_IMPORTED_MODULE_0__.CreateAccount),\n/* harmony export */   \"GetCrypto\": () => (/* reexport safe */ _get_crypto_value__WEBPACK_IMPORTED_MODULE_1__.GetCrypto),\n/* harmony export */   \"MakeLogin\": () => (/* reexport safe */ _make_login__WEBPACK_IMPORTED_MODULE_2__.MakeLogin)\n/* harmony export */ });\n/* harmony import */ var _create_account__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-account */ \"./src/data/usecases/create-account/index.ts\");\n/* harmony import */ var _get_crypto_value__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-crypto-value */ \"./src/data/usecases/get-crypto-value/index.ts\");\n/* harmony import */ var _make_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./make-login */ \"./src/data/usecases/make-login/index.ts\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/index.ts?");
+
+/***/ }),
+
+/***/ "./src/data/usecases/make-login/index.ts":
+/*!***********************************************!*\
+  !*** ./src/data/usecases/make-login/index.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"MakeLogin\": () => (/* reexport safe */ _make_login__WEBPACK_IMPORTED_MODULE_0__.MakeLogin)\n/* harmony export */ });\n/* harmony import */ var _make_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./make-login */ \"./src/data/usecases/make-login/make-login.ts\");\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/data/usecases/make-login/index.ts?");
 
 /***/ }),
 
@@ -2717,36 +2761,69 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/main/factories/usecases/create-account-factory.ts":
-/*!***************************************************************!*\
-  !*** ./src/main/factories/usecases/create-account-factory.ts ***!
-  \***************************************************************/
+/***/ "./src/main/factories/usecases/account/create-account-factory.ts":
+/*!***********************************************************************!*\
+  !*** ./src/main/factories/usecases/account/create-account-factory.ts ***!
+  \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeCreateAccountFactory\": () => (/* binding */ makeCreateAccountFactory)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_create_account_create_account__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../data/usecases/create-account/create-account */ \"./src/data/usecases/create-account/create-account.ts\");\n/* harmony import */ var _cache_local_storage_set_adapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cache/local-storage-set-adapter */ \"./src/main/factories/cache/local-storage-set-adapter.ts\");\n\r\n\r\nconst makeCreateAccountFactory = () => {\r\n    return new _data_usecases_create_account_create_account__WEBPACK_IMPORTED_MODULE_0__.CreateAccount((0,_cache_local_storage_set_adapter__WEBPACK_IMPORTED_MODULE_1__.makeLocalStorageSetAdapter)());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/create-account-factory.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeCreateAccountFactory\": () => (/* binding */ makeCreateAccountFactory)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_create_account_create_account__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../data/usecases/create-account/create-account */ \"./src/data/usecases/create-account/create-account.ts\");\n/* harmony import */ var _cache_local_storage_set_adapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../cache/local-storage-set-adapter */ \"./src/main/factories/cache/local-storage-set-adapter.ts\");\n\r\n\r\nconst makeCreateAccountFactory = () => {\r\n    return new _data_usecases_create_account_create_account__WEBPACK_IMPORTED_MODULE_0__.CreateAccount((0,_cache_local_storage_set_adapter__WEBPACK_IMPORTED_MODULE_1__.makeLocalStorageSetAdapter)());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/account/create-account-factory.ts?");
 
 /***/ }),
 
-/***/ "./src/main/factories/usecases/get-bitcoin-value-factory.ts":
-/*!******************************************************************!*\
-  !*** ./src/main/factories/usecases/get-bitcoin-value-factory.ts ***!
-  \******************************************************************/
+/***/ "./src/main/factories/usecases/account/index.ts":
+/*!******************************************************!*\
+  !*** ./src/main/factories/usecases/account/index.ts ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBitcoinValue\": () => (/* binding */ makeGetBitcoinValue)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../data/usecases/get-crypto-value/get-crypto-value */ \"./src/data/usecases/get-crypto-value/get-crypto-value.ts\");\n/* harmony import */ var _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../infra/axios-http-get/axios-http-get-client */ \"./src/infra/axios-http-get/axios-http-get-client.ts\");\n/* harmony import */ var _main_factories_api_bitcoin_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../main/factories/api/bitcoin-api */ \"./src/main/factories/api/bitcoin-api.ts\");\n\r\n\r\n\r\nconst makeGetBitcoinValue = () => {\r\n    return new _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__.GetCrypto((0,_main_factories_api_bitcoin_api__WEBPACK_IMPORTED_MODULE_2__.makeBitcoinApi)(), new _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__.AxiosHttpGetClient());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/get-bitcoin-value-factory.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeCreateAccountFactory\": () => (/* reexport safe */ _create_account_factory__WEBPACK_IMPORTED_MODULE_0__.makeCreateAccountFactory),\n/* harmony export */   \"makeLoginFactory\": () => (/* reexport safe */ _make_login_factory__WEBPACK_IMPORTED_MODULE_1__.makeLoginFactory)\n/* harmony export */ });\n/* harmony import */ var _create_account_factory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-account-factory */ \"./src/main/factories/usecases/account/create-account-factory.ts\");\n/* harmony import */ var _make_login_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./make-login-factory */ \"./src/main/factories/usecases/account/make-login-factory.ts\");\n\r\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/account/index.ts?");
 
 /***/ }),
 
-/***/ "./src/main/factories/usecases/get-brita-value-factory.ts":
+/***/ "./src/main/factories/usecases/account/make-login-factory.ts":
+/*!*******************************************************************!*\
+  !*** ./src/main/factories/usecases/account/make-login-factory.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeLoginFactory\": () => (/* binding */ makeLoginFactory)\n/* harmony export */ });\n/* harmony import */ var _data_usecases__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../data/usecases */ \"./src/data/usecases/index.ts\");\n/* harmony import */ var _cache_local_storage_get_adapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../cache/local-storage-get-adapter */ \"./src/main/factories/cache/local-storage-get-adapter.ts\");\n\r\n\r\nconst makeLoginFactory = () => new _data_usecases__WEBPACK_IMPORTED_MODULE_0__.MakeLogin((0,_cache_local_storage_get_adapter__WEBPACK_IMPORTED_MODULE_1__.makeLocalStorageGetAdapter)());\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/account/make-login-factory.ts?");
+
+/***/ }),
+
+/***/ "./src/main/factories/usecases/get-cryptos-value/get-bitcoin-value-factory.ts":
+/*!************************************************************************************!*\
+  !*** ./src/main/factories/usecases/get-cryptos-value/get-bitcoin-value-factory.ts ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBitcoinValue\": () => (/* binding */ makeGetBitcoinValue)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../data/usecases/get-crypto-value/get-crypto-value */ \"./src/data/usecases/get-crypto-value/get-crypto-value.ts\");\n/* harmony import */ var _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../infra/axios-http-get/axios-http-get-client */ \"./src/infra/axios-http-get/axios-http-get-client.ts\");\n/* harmony import */ var _main_factories_api_bitcoin_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../main/factories/api/bitcoin-api */ \"./src/main/factories/api/bitcoin-api.ts\");\n\r\n\r\n\r\nconst makeGetBitcoinValue = () => {\r\n    return new _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__.GetCrypto((0,_main_factories_api_bitcoin_api__WEBPACK_IMPORTED_MODULE_2__.makeBitcoinApi)(), new _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__.AxiosHttpGetClient());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/get-cryptos-value/get-bitcoin-value-factory.ts?");
+
+/***/ }),
+
+/***/ "./src/main/factories/usecases/get-cryptos-value/get-brita-value-factory.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/main/factories/usecases/get-cryptos-value/get-brita-value-factory.ts ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBritaValue\": () => (/* binding */ makeGetBritaValue)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../data/usecases/get-crypto-value/get-crypto-value */ \"./src/data/usecases/get-crypto-value/get-crypto-value.ts\");\n/* harmony import */ var _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../infra/axios-http-get/axios-http-get-client */ \"./src/infra/axios-http-get/axios-http-get-client.ts\");\n/* harmony import */ var _api_brita_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/brita-api */ \"./src/main/factories/api/brita-api.ts\");\n\r\n\r\n\r\nconst makeGetBritaValue = () => {\r\n    return new _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__.GetCrypto((0,_api_brita_api__WEBPACK_IMPORTED_MODULE_2__.makeBritaApi)(), new _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__.AxiosHttpGetClient());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/get-cryptos-value/get-brita-value-factory.ts?");
+
+/***/ }),
+
+/***/ "./src/main/factories/usecases/get-cryptos-value/index.ts":
 /*!****************************************************************!*\
-  !*** ./src/main/factories/usecases/get-brita-value-factory.ts ***!
+  !*** ./src/main/factories/usecases/get-cryptos-value/index.ts ***!
   \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBritaValue\": () => (/* binding */ makeGetBritaValue)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../data/usecases/get-crypto-value/get-crypto-value */ \"./src/data/usecases/get-crypto-value/get-crypto-value.ts\");\n/* harmony import */ var _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../infra/axios-http-get/axios-http-get-client */ \"./src/infra/axios-http-get/axios-http-get-client.ts\");\n/* harmony import */ var _api_brita_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api/brita-api */ \"./src/main/factories/api/brita-api.ts\");\n\r\n\r\n\r\nconst makeGetBritaValue = () => {\r\n    return new _data_usecases_get_crypto_value_get_crypto_value__WEBPACK_IMPORTED_MODULE_0__.GetCrypto((0,_api_brita_api__WEBPACK_IMPORTED_MODULE_2__.makeBritaApi)(), new _infra_axios_http_get_axios_http_get_client__WEBPACK_IMPORTED_MODULE_1__.AxiosHttpGetClient());\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/get-brita-value-factory.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBitcoinValue\": () => (/* reexport safe */ _get_bitcoin_value_factory__WEBPACK_IMPORTED_MODULE_0__.makeGetBitcoinValue),\n/* harmony export */   \"makeGetBritaValue\": () => (/* reexport safe */ _get_brita_value_factory__WEBPACK_IMPORTED_MODULE_1__.makeGetBritaValue)\n/* harmony export */ });\n/* harmony import */ var _get_bitcoin_value_factory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get-bitcoin-value-factory */ \"./src/main/factories/usecases/get-cryptos-value/get-bitcoin-value-factory.ts\");\n/* harmony import */ var _get_brita_value_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-brita-value-factory */ \"./src/main/factories/usecases/get-cryptos-value/get-brita-value-factory.ts\");\n\r\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/get-cryptos-value/index.ts?");
 
 /***/ }),
 
@@ -2757,18 +2834,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeGetBitcoinValue\": () => (/* reexport safe */ _get_bitcoin_value_factory__WEBPACK_IMPORTED_MODULE_0__.makeGetBitcoinValue),\n/* harmony export */   \"makeGetBritaValue\": () => (/* reexport safe */ _get_brita_value_factory__WEBPACK_IMPORTED_MODULE_1__.makeGetBritaValue)\n/* harmony export */ });\n/* harmony import */ var _get_bitcoin_value_factory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./get-bitcoin-value-factory */ \"./src/main/factories/usecases/get-bitcoin-value-factory.ts\");\n/* harmony import */ var _get_brita_value_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-brita-value-factory */ \"./src/main/factories/usecases/get-brita-value-factory.ts\");\n\r\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/index.ts?");
-
-/***/ }),
-
-/***/ "./src/main/factories/usecases/make-login-factory.ts":
-/*!***********************************************************!*\
-  !*** ./src/main/factories/usecases/make-login-factory.ts ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeLoginFactory\": () => (/* binding */ makeLoginFactory)\n/* harmony export */ });\n/* harmony import */ var _data_usecases_make_login_make_login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../data/usecases/make-login/make-login */ \"./src/data/usecases/make-login/make-login.ts\");\n/* harmony import */ var _cache_local_storage_get_adapter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cache/local-storage-get-adapter */ \"./src/main/factories/cache/local-storage-get-adapter.ts\");\n\r\n\r\nconst makeLoginFactory = () => new _data_usecases_make_login_make_login__WEBPACK_IMPORTED_MODULE_0__.MakeLogin((0,_cache_local_storage_get_adapter__WEBPACK_IMPORTED_MODULE_1__.makeLocalStorageGetAdapter)());\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/make-login-factory.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeCreateAccountFactory\": () => (/* reexport safe */ _account__WEBPACK_IMPORTED_MODULE_0__.makeCreateAccountFactory),\n/* harmony export */   \"makeLoginFactory\": () => (/* reexport safe */ _account__WEBPACK_IMPORTED_MODULE_0__.makeLoginFactory),\n/* harmony export */   \"makeGetBitcoinValue\": () => (/* reexport safe */ _get_cryptos_value__WEBPACK_IMPORTED_MODULE_1__.makeGetBitcoinValue),\n/* harmony export */   \"makeGetBritaValue\": () => (/* reexport safe */ _get_cryptos_value__WEBPACK_IMPORTED_MODULE_1__.makeGetBritaValue)\n/* harmony export */ });\n/* harmony import */ var _account__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./account */ \"./src/main/factories/usecases/account/index.ts\");\n/* harmony import */ var _get_cryptos_value__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-cryptos-value */ \"./src/main/factories/usecases/get-cryptos-value/index.ts\");\n\r\n\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/main/factories/usecases/index.ts?");
 
 /***/ }),
 
@@ -2900,7 +2966,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"VerifyLoginSignup\": () => (/* binding */ VerifyLoginSignup)\n/* harmony export */ });\n/* harmony import */ var _main_factories_usecases_make_login_factory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../main/factories/usecases/make-login-factory */ \"./src/main/factories/usecases/make-login-factory.ts\");\n/* harmony import */ var _main_factories_usecases_create_account_factory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../main/factories/usecases/create-account-factory */ \"./src/main/factories/usecases/create-account-factory.ts\");\nvar __rest = (undefined && undefined.__rest) || function (s, e) {\r\n    var t = {};\r\n    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)\r\n        t[p] = s[p];\r\n    if (s != null && typeof Object.getOwnPropertySymbols === \"function\")\r\n        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {\r\n            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))\r\n                t[p[i]] = s[p[i]];\r\n        }\r\n    return t;\r\n};\r\n\r\n// Adapter\r\n\r\nconst VerifyLoginSignup = (_a) => {\r\n    var props = __rest(_a, []);\r\n    switch (true) {\r\n        // If signup and username doesnt exists in localStorage\r\n        case (props.value === 'signup' && localStorage.getItem(props.username) === null):\r\n            (0,_main_factories_usecases_create_account_factory__WEBPACK_IMPORTED_MODULE_1__.makeCreateAccountFactory)().create(props.username);\r\n            location.reload();\r\n            break;\r\n        // If login and username exists in localStorage\r\n        case (props.value === 'login' && localStorage.getItem(props.username) !== null):\r\n            (0,_main_factories_usecases_make_login_factory__WEBPACK_IMPORTED_MODULE_0__.makeLoginFactory)().login(props.username);\r\n            location.reload();\r\n            break;\r\n        case (props.value === 'login' && localStorage.getItem(props.username) === null):\r\n            props.setErrorState({\r\n                error: true,\r\n                helperText: 'Usuário não encontrado'\r\n            });\r\n            break;\r\n        default:\r\n            props.setErrorState({\r\n                error: true,\r\n                helperText: 'O usuário já existe'\r\n            });\r\n            break;\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/presentation/components/login-signup-card/form/verify-login-signup.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"VerifyLoginSignup\": () => (/* binding */ VerifyLoginSignup)\n/* harmony export */ });\n/* harmony import */ var _main_factories_usecases__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../main/factories/usecases */ \"./src/main/factories/usecases/index.ts\");\nvar __rest = (undefined && undefined.__rest) || function (s, e) {\r\n    var t = {};\r\n    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)\r\n        t[p] = s[p];\r\n    if (s != null && typeof Object.getOwnPropertySymbols === \"function\")\r\n        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {\r\n            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))\r\n                t[p[i]] = s[p[i]];\r\n        }\r\n    return t;\r\n};\r\n// Adapter\r\n\r\nconst VerifyLoginSignup = (_a) => {\r\n    var props = __rest(_a, []);\r\n    switch (true) {\r\n        // If signup and username doesnt exists in localStorage\r\n        case (props.value === 'signup' && localStorage.getItem(props.username) === null):\r\n            (0,_main_factories_usecases__WEBPACK_IMPORTED_MODULE_0__.makeCreateAccountFactory)().create(props.username);\r\n            location.reload();\r\n            break;\r\n        // If login and username exists in localStorage\r\n        case (props.value === 'login' && localStorage.getItem(props.username) !== null):\r\n            (0,_main_factories_usecases__WEBPACK_IMPORTED_MODULE_0__.makeLoginFactory)().login(props.username);\r\n            location.reload();\r\n            break;\r\n        case (props.value === 'login' && localStorage.getItem(props.username) === null):\r\n            props.setErrorState({\r\n                error: true,\r\n                helperText: 'Usuário não encontrado'\r\n            });\r\n            break;\r\n        default:\r\n            props.setErrorState({\r\n                error: true,\r\n                helperText: 'O usuário já existe'\r\n            });\r\n            break;\r\n    }\r\n};\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/presentation/components/login-signup-card/form/verify-login-signup.tsx?");
 
 /***/ }),
 

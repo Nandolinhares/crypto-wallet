@@ -4,7 +4,7 @@ import { Container } from '@material-ui/core'
 // Components
 import { Login, Signup, Profile } from './pages'
 import { Header } from './components'
-import { AccountModel } from '../domain/models/account-model.type'
+import { AccountModel } from '../domain/models/account-model/account-model.type'
 import PrivateRoute from './private-route'
 import DisconnectedRoute from './disconnected-route'
 // Contexts

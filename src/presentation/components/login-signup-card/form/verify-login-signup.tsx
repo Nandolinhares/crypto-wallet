@@ -1,7 +1,5 @@
-import { makeLoginFactory } from '../../../../main/factories/usecases/make-login-factory'
-
 // Adapter
-import { makeCreateAccountFactory } from '../../../../main/factories/usecases/create-account-factory'
+import { makeCreateAccountFactory, makeLoginFactory } from '../../../../main/factories/usecases'
 
 type Props = {
   value: string

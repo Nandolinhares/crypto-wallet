@@ -1,2 +1,2 @@
-export * from './get-bitcoin-value-factory'
-export * from './get-brita-value-factory'
+export * from './account'
+export * from './get-cryptos-value'
