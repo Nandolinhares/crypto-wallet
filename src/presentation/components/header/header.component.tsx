@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 // Styles
 import { useStyles } from './header-styles'
 // Icons
@@ -12,10 +12,6 @@ const Header: React.FC = () => {
   const classes = useStyles()
   // Context
   const { user } = useContext(UserContext)
-
-  useEffect(() => {
-    console.log('Header', user)
-  }, [])
 
   return (
     <>

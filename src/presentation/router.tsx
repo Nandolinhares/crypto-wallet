@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 // Components
@@ -16,16 +16,9 @@ type Props = {
 
 const Router: React.FC<Props> = ({ makeApp }: Props) => {
   const [user] = useState<AccountModel>(JSON.parse(localStorage.getItem('userActive')))
-  const [render, setRender] = useState(0)
-
-  useEffect(() => {
-    console.log('renderizou')
-    console.log(user)
-    // console.log(JSON.parse(localStorage.getItem('userActive')))
-  }, [render])
 
   return (
-    <UserContext.Provider value={ { user, setRender } }>
+    <UserContext.Provider value={ { user } }>
       <Container maxWidth="lg">
         <BrowserRouter>
           <Header />

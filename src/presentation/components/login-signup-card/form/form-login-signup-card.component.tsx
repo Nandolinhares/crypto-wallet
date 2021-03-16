@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 // RRD
 import { Link } from 'react-router-dom'
 // MUI
@@ -7,8 +7,6 @@ import { useStyles, CssTextField } from './form-login-signup-styles'
 
 // Errors
 import { InputErrorType } from '../../../../domain/errors/input-errors/input-error-type'
-// Contexts
-import UserContext from '../../../contexts/user-context'
 import { VerifyLoginSignup } from './verify-login-signup'
 
 type Props = {
@@ -23,9 +21,6 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
     error: false,
     helperText: ''
   })
-
-  // Context
-  const { setRender } = useContext(UserContext)
 
   // Clean input erros when username changes
   useEffect(() => {
@@ -51,7 +46,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
       })
     } else {
       // Verify if is Login or signup and make
-      VerifyLoginSignup({ value, username, setRender, setErrorState })
+      VerifyLoginSignup({ value, username, setErrorState })
     }
   }
   return (
