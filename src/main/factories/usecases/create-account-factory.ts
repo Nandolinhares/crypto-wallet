@@ -1,7 +1,7 @@
-import { CreateAccount } from '../../../data/usecases/outro/create-account'
+import { CreateAccount } from '../../../data/usecases/create-account/create-account'
 import { CreateAccountInterface } from '../../../domain/usecases/create-account/create-account.interface'
-import { makeLocalStorageAdapter } from '../cache/local-storage-adapter'
+import { makeLocalStorageSetAdapter } from '../cache/local-storage-set-adapter'
 
-export const makeCreateAccount = (): CreateAccountInterface => {
-  return new CreateAccount(makeLocalStorageAdapter())
+export const makeCreateAccountFactory = (): CreateAccountInterface => {
+  return new CreateAccount(makeLocalStorageSetAdapter())
 }
