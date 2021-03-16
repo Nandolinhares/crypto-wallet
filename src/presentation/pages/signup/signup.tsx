@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginSignupCard from '../../components/login-signup-card/login-signup-card'
+import LoginSignupCard from '../../components/login-signup-card/login-signup-card.component'
 
 const Signup: React.FC = () => {
   return (
