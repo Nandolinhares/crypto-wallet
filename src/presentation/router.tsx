@@ -13,7 +13,7 @@ const Router: React.FC<Props> = ({ makeApp }: Props) => {
   return (
     <Container maxWidth="lg">
       <BrowserRouter>
-      <Header />
+        <Header />
         <Switch>
           <Route exact path="/" component={makeApp} />
           <Route exact path="/signup" component={Signup} />

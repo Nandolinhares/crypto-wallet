@@ -20,14 +20,18 @@ const Header: React.FC = () => {
         <nav className="nav">
           <ul data-testid="ul">
             <li>
-              <Button variant="contained" className="buttonLogin" component={Link} to="/login">
-                ENTRAR
-              </Button>
+              <Link to="/login">
+                <Button variant="contained" className="buttonLogin">
+                  ENTRAR
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button variant="outlined" className="buttonCadastrar" component={Link} to="/signup">
-                CADASTRAR
-              </Button>
+              <Link to="/signup">
+                <Button variant="outlined" className="buttonCadastrar">
+                  CADASTRAR
+                </Button>
+              </Link>
             </li>
           </ul>
         </nav>
