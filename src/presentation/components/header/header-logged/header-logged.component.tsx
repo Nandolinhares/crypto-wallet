@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 
 const HeaderLogged: React.FC = () => {
+  const handleLogout = (): void => {
+    localStorage.removeItem('userActive')
+    location.href = '/'
+  }
+
   return (
     <>
       <li>
@@ -15,7 +20,7 @@ const HeaderLogged: React.FC = () => {
         </Link>
       </li>
       <li>
-        <Button variant="outlined" className="buttonCadastrar">
+        <Button variant="outlined" className="buttonCadastrar" onClick={handleLogout}>
           SAIR
         </Button>
       </li>

@@ -10,7 +10,6 @@ export class MakeLogin implements MakeLoginInterface {
 
   login (username: string): void {
     this.user = JSON.parse(this.getStorage.get(username))
-    this.user.isLogged = true
     localStorage.setItem('userActive', JSON.stringify(this.user))
   }
 }
