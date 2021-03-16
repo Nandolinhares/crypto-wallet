@@ -7,11 +7,11 @@ export class CreateAccount implements CreateAccountInterface {
   ) {}
 
   create (username: string): void {
-    this.setStorage.set(username, [
+    this.setStorage.set(username, JSON.stringify(
       {
         username,
         money: '100000'
       }
-    ])
+    ))
   }
 }
