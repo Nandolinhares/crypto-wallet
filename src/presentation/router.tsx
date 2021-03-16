@@ -13,7 +13,11 @@ type Props = {
 }
 
 const Router: React.FC<Props> = ({ makeApp }: Props) => {
-  const [user, setUser] = useState<AccountModel>(null)
+  const [user, setUser] = useState<AccountModel>({
+    username: '',
+    money: '',
+    isLogged: false
+  })
 
   useEffect(() => {
     console.log(JSON.parse(localStorage.getItem('userActive')))

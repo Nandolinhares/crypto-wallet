@@ -2,31 +2,14 @@ import React, { useState, useEffect, useContext } from 'react'
 // RRD
 import { Link } from 'react-router-dom'
 // MUI
-import { TextField, Button, withStyles } from '@material-ui/core'
-import { useStyles } from './form-signup-styles'
-// Adapter
-import { makeCreateAccountFactory } from '../../../main/factories/usecases/create-account-factory'
-// Errors
-import { InputErrorType } from '../../../domain/errors/input-errors/input-error-type'
-import { makeLoginFactory } from '@/main/factories/usecases/make-login-factory'
-// Contexts
-import UserContext from '../../contexts/user-context'
+import { Button } from '@material-ui/core'
+import { useStyles, CssTextField } from './form-login-signup-styles'
 
-const CssTextField = withStyles({
-  root: {
-    '& label.Mui-focused': {
-      color: 'green'
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: 'green'
-    },
-    '& .MuiOutlinedInput-root': {
-      '&.Mui-focused fieldset': {
-        borderColor: 'green'
-      }
-    }
-  }
-})(TextField)
+// Errors
+import { InputErrorType } from '../../../../domain/errors/input-errors/input-error-type'
+// Contexts
+import UserContext from '../../../contexts/user-context'
+import { VerifyLoginSignup } from './verify-login-signup'
 
 type Props = {
   value: string
@@ -67,36 +50,8 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
         helperText: 'O campo não pode estar em branco'
       })
     } else {
-      switch (true) {
-        // If signup and username doesnt exists in localStorage
-        case (value === 'signup'):
-          makeCreateAccountFactory().create(username)
-          setUser({
-            ...user,
-            isLogged: true
-          })
-          break
-        // If login and username exists in localStorage
-        case (value === 'login' && localStorage.getItem(username) !== null):
-          makeLoginFactory().login(username)
-          setUser({
-            ...user,
-            isLogged: true
-          })
-          break
-        case (value === 'login' && localStorage.getItem(username) === null):
-          setErrorState({
-            error: true,
-            helperText: 'Usuário não encontrado'
-          })
-          break
-        default:
-          setErrorState({
-            error: true,
-            helperText: 'O usuário já existe'
-          })
-          break
-      }
+      // Verify if is Login or signup and make
+      VerifyLoginSignup({ value, username, user, setUser, setErrorState })
     }
   }
   return (

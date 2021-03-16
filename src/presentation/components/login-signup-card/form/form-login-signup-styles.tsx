@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, withStyles, TextField } from '@material-ui/core'
 
 export const useStyles = makeStyles({
   username: {
@@ -25,3 +25,18 @@ export const useStyles = makeStyles({
     }
   }
 })
+export const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green'
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green'
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: 'green'
+      }
+    }
+  }
+})(TextField)
