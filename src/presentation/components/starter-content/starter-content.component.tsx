@@ -1,23 +1,10 @@
 import React from 'react'
 // MUI
-import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import CryptoCard from '../crypto-card/crypto-card'
+// Styles
+import { useStyles } from './starter-content-styles'
 // Components
-
-const useStyles = makeStyles({
-  gridContainer: {
-    '& h2': {
-      fontSize: 58,
-      '& strong': {
-        color: 'green'
-      }
-    },
-    '& p': {
-      fontSize: 28
-    }
-  }
-})
+import CryptoCard from '../crypto-card/crypto-card'
 
 const StarterContent: React.FC = () => {
   const classes = useStyles()
