@@ -25,7 +25,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
   })
 
   // Context
-  const { user, setUser } = useContext(UserContext)
+  const { setRender } = useContext(UserContext)
 
   // Clean input erros when username changes
   useEffect(() => {
@@ -51,7 +51,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
       })
     } else {
       // Verify if is Login or signup and make
-      VerifyLoginSignup({ value, username, user, setUser, setErrorState })
+      VerifyLoginSignup({ value, username, setRender, setErrorState })
     }
   }
   return (
@@ -68,7 +68,13 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
         helperText={errorState.error ? errorState.helperText : ''}
       />
       <div className={classes.divButtons}>
-        <Button variant="outlined" className={classes.buttonVoltar} component={Link} to="/">PÁGINA PRINCIPAL</Button>
+        <Button
+          variant="outlined"
+          className={classes.buttonVoltar}
+          component={Link}
+          to="/">
+            PÁGINA PRINCIPAL
+        </Button>
         <Button type="submit" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
       </div>
     </form>
