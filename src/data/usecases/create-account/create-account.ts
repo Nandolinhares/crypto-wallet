@@ -10,7 +10,8 @@ export class CreateAccount implements CreateAccountInterface {
     this.setStorage.set(username, JSON.stringify(
       {
         username,
-        money: '100000'
+        money: '100000',
+        isLogged: true
       }
     ))
   }

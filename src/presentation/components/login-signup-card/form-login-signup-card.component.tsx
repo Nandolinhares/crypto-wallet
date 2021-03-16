@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 // RRD
 import { Link } from 'react-router-dom'
 // MUI
@@ -9,6 +9,8 @@ import { makeCreateAccountFactory } from '../../../main/factories/usecases/creat
 // Errors
 import { InputErrorType } from '../../../domain/errors/input-errors/input-error-type'
 import { makeLoginFactory } from '@/main/factories/usecases/make-login-factory'
+// Contexts
+import UserContext from '../../contexts/user-context'
 
 const CssTextField = withStyles({
   root: {
@@ -39,6 +41,9 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
     helperText: ''
   })
 
+  // Context
+  const { user, setUser } = useContext(UserContext)
+
   // Clean input erros when username changes
   useEffect(() => {
     setErrorState({
@@ -62,18 +67,35 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
         helperText: 'O campo não pode estar em branco'
       })
     } else {
-      // If signup and username doesnt exists in localStorage
-      if (value === 'signup' && localStorage.getItem(username) === null) {
-        makeCreateAccountFactory().create(username)
+      switch (true) {
+        // If signup and username doesnt exists in localStorage
+        case (value === 'signup'):
+          makeCreateAccountFactory().create(username)
+          setUser({
+            ...user,
+            isLogged: true
+          })
+          break
         // If login and username exists in localStorage
-      } else if (value === 'login' && localStorage.getItem(username) !== null) {
-        makeLoginFactory().login(username)
-        // If user doesnt exists in localStorage
-      } else {
-        setErrorState({
-          error: true,
-          helperText: 'O usuário já existe'
-        })
+        case (value === 'login' && localStorage.getItem(username) !== null):
+          makeLoginFactory().login(username)
+          setUser({
+            ...user,
+            isLogged: true
+          })
+          break
+        case (value === 'login' && localStorage.getItem(username) === null):
+          setErrorState({
+            error: true,
+            helperText: 'Usuário não encontrado'
+          })
+          break
+        default:
+          setErrorState({
+            error: true,
+            helperText: 'O usuário já existe'
+          })
+          break
       }
     }
   }
