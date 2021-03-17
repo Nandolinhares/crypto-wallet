@@ -1,17 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 // Styles
 import { useStyles } from './header-styles'
 // Icons
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
-// Contexts
-import UserContext from '../../contexts/user-context'
 import HeaderLogged from './header-logged/header-logged.component'
 import HeaderDisconnected from './header-disconnected/header-disconnected.component'
+// Redux
+import { useSelector } from 'react-redux'
 
 const Header: React.FC = () => {
   const classes = useStyles()
-  // Context
-  const { user } = useContext(UserContext)
+  // Global state
+  const { user } = useSelector(state => state.user)
 
   return (
     <>
