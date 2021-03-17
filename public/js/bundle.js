@@ -3080,6 +3080,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/presentation/pages/profile/profile-styles.tsx":
+/*!***********************************************************!*\
+  !*** ./src/presentation/pages/profile/profile-styles.tsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"useStyles\": () => (/* binding */ useStyles)\n/* harmony export */ });\n/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core */ \"./node_modules/@material-ui/core/esm/styles/makeStyles.js\");\n\r\nconst useStyles = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_0__.default)({\r\n    cryptosCards: {\r\n        display: 'flex',\r\n        flexDirection: 'column',\r\n        fontSize: 38\r\n    },\r\n    bitcoinDiv: {\r\n        margin: '28px 0 28px 0'\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/presentation/pages/profile/profile-styles.tsx?");
+
+/***/ }),
+
 /***/ "./src/presentation/pages/profile/profile.tsx":
 /*!****************************************************!*\
   !*** ./src/presentation/pages/profile/profile.tsx ***!
@@ -3087,7 +3098,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\r\nconst Profile = () => {\r\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", null, \"Perfil do usu\\u00E1rio\"));\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/presentation/pages/profile/profile.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _profile_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile-styles */ \"./src/presentation/pages/profile/profile-styles.tsx\");\n/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ \"./node_modules/@material-ui/core/esm/Grid/Grid.js\");\n/* harmony import */ var _components_crypto_card_crypto_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/crypto-card/crypto-card */ \"./src/presentation/components/crypto-card/crypto-card.tsx\");\n\r\n// MUI\r\n\r\n\r\n\r\nconst Profile = () => {\r\n    const classes = (0,_profile_styles__WEBPACK_IMPORTED_MODULE_1__.useStyles)();\r\n    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, { container: true, spacing: 2 },\r\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, { item: true, md: 6 },\r\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"h2\", null, \"Hello World\")),\r\n        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__.default, { item: true, md: 6, className: classes.cryptosCards },\r\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", { className: classes.bitcoinDiv },\r\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_crypto_card_crypto_card__WEBPACK_IMPORTED_MODULE_2__.default, { value: \"Bitcoin\" })),\r\n            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"div\", null,\r\n                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_crypto_card_crypto_card__WEBPACK_IMPORTED_MODULE_2__.default, { value: \"Brita\" })))));\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);\r\n\n\n//# sourceURL=webpack://desafio-frontend/./src/presentation/pages/profile/profile.tsx?");
 
 /***/ }),
 
