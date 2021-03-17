@@ -18,6 +18,7 @@
     "@typescript-eslint/no-redeclare": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/default-param-last": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "@typescript-eslint/no-use-before-define": "off"

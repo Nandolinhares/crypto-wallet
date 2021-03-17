@@ -4,33 +4,36 @@ import { Container } from '@material-ui/core'
 // Components
 import { Login, Signup, Profile } from './pages'
 import { Header } from './components'
-import { AccountModel } from '../domain/models/account-model/account-model.type'
-import PrivateRoute from './private-route'
-import DisconnectedRoute from './disconnected-route'
-// Contexts
-import UserContext from './contexts/user-context'
+import PrivateRoute from './routes/private-route'
+import DisconnectedRoute from './routes/disconnected-route'
+// Redux
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import Wrapper from './routes/wrapper'
 
 type Props = {
   makeApp: React.FC
 }
 
 const Router: React.FC<Props> = ({ makeApp }: Props) => {
-  const [user] = useState<AccountModel>(JSON.parse(localStorage.getItem('userActive')))
+  const [user] = useState(JSON.parse(localStorage.getItem('userActive')))
 
   return (
-    <UserContext.Provider value={ { user } }>
-      <Container maxWidth="lg">
-        <BrowserRouter>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={makeApp} />
-            <DisconnectedRoute exact authed={user !== null} path="/login" component={Login} />
-            <DisconnectedRoute exact authed={user !== null} path="/signup" component={Signup} />
-            <PrivateRoute authed={user !== null} path='/profile' component={Profile} />
-          </Switch>
-        </BrowserRouter>
-      </Container>
-    </UserContext.Provider>
+    <Provider store={store}>
+      <Wrapper>
+        <Container maxWidth="lg">
+          <BrowserRouter>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={makeApp} />
+              <DisconnectedRoute exact authed={user !== null} path="/login" component={Login} />
+              <DisconnectedRoute exact authed={user !== null} path="/signup" component={Signup} />
+              <PrivateRoute authed={user !== null} path='/profile' component={Profile} />
+            </Switch>
+          </BrowserRouter>
+        </Container>
+      </Wrapper>
+    </Provider>
   )
 }
 
