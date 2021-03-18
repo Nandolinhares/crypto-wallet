@@ -24,6 +24,7 @@ const BuySellCryptoCard: React.FC = () => {
           <SelectBuySellButton stateSelected={stateSelected} setStateSelected={setStateSelected} />
           {/* Value to buy a crypto */}
           <InputMoney qtdValue={qtdValue} setQtdValue={setQtdValue} stateSelected={stateSelected} />
+         <h2>{qtdValue}</h2>
         </section>
         <section>
           teste

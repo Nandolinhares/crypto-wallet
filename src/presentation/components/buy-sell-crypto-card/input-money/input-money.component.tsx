@@ -26,7 +26,7 @@ const InputMoney: React.FC<Props> = ({ qtdValue, setQtdValue, stateSelected }: P
         id="custom-css-outlined-input"
         onChange={handleChange}
         value={qtdValue || ''}
-        type="number"
+        type="text"
         required
         // error={errorState.error}
         // helperText={errorState.error ? errorState.helperText : ''}
