@@ -3,15 +3,23 @@ import { makeStyles } from '@material-ui/core'
 export const useStyles = makeStyles({
   cryptosCards: {
     display: 'flex',
-    flexDirection: 'column',
-    fontSize: 38
+    flexDirection: 'row',
+    fontSize: 38,
+    marginTop: '48px !important'
   },
   dashboard: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
+  hr: {
+    marginTop: 28,
+    color: '#d5d5d5'
+  },
+  sectionBuyOrSell: {
+    marginTop: 28
+  },
   bitcoinDiv: {
-    margin: '28px 0 28px 0'
+    marginRight: 28
   }
 })
