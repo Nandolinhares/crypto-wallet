@@ -10,7 +10,8 @@ export const useStyles = makeStyles({
   dashboard: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    flexWrap: 'wrap'
   },
   hr: {
     marginTop: 28,

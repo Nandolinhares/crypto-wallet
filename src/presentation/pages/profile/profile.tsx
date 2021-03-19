@@ -10,11 +10,12 @@ const Profile: React.FC = () => {
   const classes = useStyles()
   // Global States
   const { user } = useSelector(state => state.user)
+  console.log(user)
   return (
     <>
       <h2>DASHBOARD</h2>
       <Grid container spacing={2}>
-        <Grid item md={9}>
+        <Grid item xs={12} sm={12} md={12}>
           {/* Dashboard */}
           <section className={classes.dashboard}>
             <WalletCard type="money" value={user.money} />
@@ -28,9 +29,9 @@ const Profile: React.FC = () => {
             <BuySellCryptoCard />
           </section>
         </Grid>
-        <Grid item md={3}>
+        {/* <Grid item md={}>
           <h2>Perfil do usuário</h2>
-        </Grid>
+        </Grid> */}
         <Grid item md={10} className={classes.cryptosCards}>
           <div className={classes.bitcoinDiv}>
             <CryptoCard value="Bitcoin" />

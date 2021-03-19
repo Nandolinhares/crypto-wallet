@@ -6,14 +6,20 @@ import { useStyles } from './buy-sell-crypto-card-styles'
 import SelectCrypto from './select-crypto/select-crypto.component'
 import SelectBuySellButton from './select-buy-sell-button/select-buy-sell-button.component'
 import InputMoney from './input-money/input-money.component'
-import { ConvertRealToCrypto } from '@/presentation/helpers/crypto-helpers/convert-real-to-crypto'
+// Helpers
+import { ConvertRealToCrypto } from '../../helpers/crypto-helpers/convert-real-to-crypto'
+import { ConvertCryptoStringToCoin } from '../../helpers/crypto-helpers/convert-crypto-string-to-coin'
+import { PrepareCheckout } from '../../helpers/prepare-checkout/prepare-checkout'
 // Redux
-import { useSelector } from 'react-redux'
-import { ConvertCryptoStringToCoin } from '@/presentation/helpers/crypto-helpers/convert-crypto-string-to-coin'
+import { useSelector, useDispatch } from 'react-redux'
+// Actions
+import { CheckoutUser } from '../../redux/actions/user-actions'
 
 const BuySellCryptoCard: React.FC = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   // Global State
+  const { user } = useSelector(state => state.user)
   const { bitcoin, brita } = useSelector(state => state.crypto)
   // Local States
   // Compra ou Venda
@@ -43,7 +49,15 @@ const BuySellCryptoCard: React.FC = () => {
   // Checkout
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    console.log('teste')
+    const checkoutInformation = PrepareCheckout({
+      cryptoName: cryptoSelected,
+      cryptoPrice: cryptoSelected === 'bitcoin' ? bitcoin : brita,
+      qtdValue,
+      stateSelected,
+      user
+    })
+    // Actions to make Checkout
+    dispatch(CheckoutUser(checkoutInformation.data))
   }
 
   return (

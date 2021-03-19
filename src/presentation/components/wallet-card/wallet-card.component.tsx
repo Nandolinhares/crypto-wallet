@@ -29,7 +29,7 @@ const WalletCard: React.FC<Props> = ({ type, value }: Props) => {
         setNewValue(ConvertCryptoStringToCoin(value, 'USD'))
         setCoinName('Britas')
     }
-  }, [])
+  }, [value])
 
   return (
     <Paper elevation={3} className={`${classes.paper} ${type === 'money' ? classes.money : (type === 'bitcoin' ? classes.bitcoin : classes.general)}`}>

@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core'
 export const useStyles = makeStyles({
   paper: {
     padding: 28,
-    color: '#fff'
+    color: '#fff',
+    maxWidth: 288,
+    width: 330,
+    margin: 28
   },
   money: {
     backgroundColor: 'green'
