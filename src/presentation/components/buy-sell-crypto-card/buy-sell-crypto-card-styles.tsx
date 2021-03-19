@@ -15,5 +15,15 @@ export const useStyles = makeStyles({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  bitcoinRealTime: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+
+    '& h3': {
+      color: '#fff',
+      textTransform: 'uppercase'
+    }
   }
 })
