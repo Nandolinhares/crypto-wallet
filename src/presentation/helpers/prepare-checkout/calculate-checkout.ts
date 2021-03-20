@@ -3,7 +3,7 @@ import { CheckoutModel } from '../../../domain/models/checkout-model/checkout-mo
 import { CheckoutParams } from '../../../domain/usecases/checkout/checkout.interface'
 import { ConvertRealToCrypto } from '../crypto-helpers/convert-real-to-crypto'
 
-export const CalculateResult = (params: CheckoutParams, operator: string): CheckoutModel => {
+export const CalculateCheckout = (params: CheckoutParams, operator: string): CheckoutModel => {
   // Local definitions
   let moneyUpdated: string = params.user.money
   let cryptoUpdated: string = params.user[`${params.cryptoName}s`]

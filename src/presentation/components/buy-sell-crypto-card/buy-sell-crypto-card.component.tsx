@@ -9,12 +9,12 @@ import InputMoney from './input-money/input-money.component'
 // Helpers
 import { ConvertRealToCrypto } from '../../helpers/crypto-helpers/convert-real-to-crypto'
 import { ConvertCryptoStringToCoin } from '../../helpers/crypto-helpers/convert-crypto-string-to-coin'
-import { PrepareCheckout } from '../../helpers/prepare-checkout/prepare-checkout'
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 // Actions
 import { CheckoutUser } from '../../redux/actions/user-actions'
 import DialogCheckout from '../dialog-checkout/dialog-checkout.component'
+import { makePrepareCheckout } from '@/main/factories/usecases/prepare-checkout/prepare-checkout-factory'
 
 const BuySellCryptoCard: React.FC = () => {
   const classes = useStyles()
@@ -56,15 +56,19 @@ const BuySellCryptoCard: React.FC = () => {
   // Checkout
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    const checkoutInformation = PrepareCheckout({
+    const checkoutInformation = makePrepareCheckout().finish({
       cryptoName: cryptoSelected,
       cryptoPrice: cryptoSelected === 'bitcoin' ? bitcoin : brita,
       qtdValue,
       stateSelected,
       user
     })
-    // Actions to make Checkout
-    dispatch(CheckoutUser(checkoutInformation.data))
+
+    if (!checkoutInformation.error) {
+      // Actions to make Checkout
+      dispatch(CheckoutUser(checkoutInformation.data))
+    }
+
     // Dialog of successful or error
     setOpenDialogInformation({
       error: checkoutInformation.error,
