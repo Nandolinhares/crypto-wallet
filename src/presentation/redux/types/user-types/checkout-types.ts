@@ -1,0 +1,1 @@
+export const CHECKOUT_USER = 'CHECKOUT_USER'

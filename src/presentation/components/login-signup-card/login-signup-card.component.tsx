@@ -5,7 +5,7 @@ import { Paper } from '@material-ui/core'
 import { useStyles } from './login-signup-styles'
 // Components
 import CryptoCard from '../crypto-card/crypto-card'
-import FormLoginSignupCard from './form-login-signup-card.component'
+import FormLoginSignupCard from './form/form-login-signup-card.component'
 
 type Props = {
   value: string

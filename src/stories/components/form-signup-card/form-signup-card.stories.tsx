@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import StoryRouter from 'storybook-react-router'
 import { Meta } from '@storybook/react/types-6-0'
 import LoginSignupCard from '../../../presentation/components/login-signup-card/login-signup-card.component'
+import { Provider } from 'react-redux'
+import store from '../../../presentation/redux/store'
 
 export default {
   title: 'Components/FormSignup',
@@ -9,4 +11,10 @@ export default {
   decorators: [StoryRouter()]
 } as Meta
 
-export const SignupCard = (): ReactElement => <LoginSignupCard value="signup" />
+export const SignupCard = (): ReactElement => {
+  return (
+    <Provider store={store}>
+      <LoginSignupCard value="signup" />
+    </Provider>
+  )
+}

@@ -1,0 +1,1 @@
+export const GET_USER_LOGGED = 'GET_USER_LOGGED'
