@@ -9,8 +9,8 @@ import axios from 'axios'
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 // Helpers
-import { ConvertCryptoStringToCoin } from '@/presentation/helpers/crypto-helpers/convert-crypto-string-to-coin'
-import { getCryptoHelper } from '@/presentation/helpers/crypto-helpers/get-crypto-helper'
+import { ConvertCryptoStringToCoin } from '../../helpers/crypto-helpers/convert-crypto-string-to-coin'
+import { getCryptoHelper } from '../../helpers/crypto-helpers/get-crypto-helper'
 
 type Props = {
   value: string

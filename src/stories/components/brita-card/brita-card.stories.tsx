@@ -3,10 +3,18 @@ import React, { ReactElement } from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 
 import CryptoCard from '../../../presentation/components/crypto-card/crypto-card'
+import { Provider } from 'react-redux'
+import store from '../../../presentation/redux/store'
 
 export default {
   title: 'Components/BritaCard',
   component: CryptoCard
 } as Meta
 
-export const britaCard = (): ReactElement => <CryptoCard value="Brita" />
+export const britaCard = (): ReactElement => {
+  return (
+    <Provider store={store}>
+      <CryptoCard value="Brita" />
+    </Provider>
+  )
+}

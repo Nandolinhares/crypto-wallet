@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from 'react-redux'
 // Actions
 import { CheckoutUser } from '../../redux/actions/user-actions'
 import DialogCheckout from '../dialog-checkout/dialog-checkout.component'
-import { makePrepareCheckout } from '@/main/factories/usecases/prepare-checkout/prepare-checkout-factory'
+import { makePrepareCheckout } from '../../../main/factories/usecases/prepare-checkout/prepare-checkout-factory'
 
 const BuySellCryptoCard: React.FC = () => {
   const classes = useStyles()
