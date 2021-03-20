@@ -6,7 +6,7 @@ type PrepareStatementType = {
   outputCryptoName: string
   outputCryptoValue: string
   outputCryptoUpdated: string
-  statementType: 'COMPRA' | 'VENDA' | 'TROCA'
+  statementType: 'COMPRA' | 'VENDA' | 'BITCOIN-BRITA' | 'BRITA-BITCOIN'
 }
 
 export const PrepareStatement = (params: PrepareStatementType): StatementModel => {
