@@ -19,6 +19,7 @@
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "@typescript-eslint/no-use-before-define": "off"

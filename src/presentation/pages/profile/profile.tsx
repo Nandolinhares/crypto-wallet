@@ -1,7 +1,9 @@
 import React from 'react'
+// RRD
+import { Link } from 'react-router-dom'
 // MUI
 import { useStyles } from './profile-styles'
-import { Grid } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core'
 // Redux
 import { useSelector } from 'react-redux'
 import { WalletCard, CryptoCard, BuySellCryptoCard, ChangeCryptocard } from '../../components'
@@ -22,7 +24,10 @@ const Profile: React.FC = () => {
             <WalletCard type="brita" value={user.britas} />
           </section>
           <hr className={classes.hr} />
-          <h2>NEGOCIAÇÕES</h2>
+          <div className={classes.statementDiv}>
+            <h2>NEGOCIAÇÕES</h2>
+            <Button variant="outlined" component={Link} to="/statement" className={classes.buttonStatement}>MEUS EXTRATOS</Button>
+          </div>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <section className={classes.sectionBuyOrSell}>

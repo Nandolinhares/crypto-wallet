@@ -12,7 +12,8 @@ export class CreateAccount implements CreateAccountInterface {
         username,
         money: '100000',
         bitcoins: '0',
-        britas: '0'
+        britas: '0',
+        statement: []
       }
     ))
   }

@@ -17,6 +17,15 @@ export const useStyles = makeStyles({
     marginTop: 28,
     color: '#d5d5d5'
   },
+  statementDiv: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  buttonStatement: {
+    color: 'green',
+    padding: '8px 18px',
+    margin: '0px 28px'
+  },
   sectionBuyOrSell: {
     marginTop: 28
   },

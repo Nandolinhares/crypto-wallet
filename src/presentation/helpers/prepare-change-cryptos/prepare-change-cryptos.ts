@@ -1,4 +1,6 @@
+import { StatementModel } from '../../../domain/models/statement/statement-model'
 import { AccountModel } from '../../../domain/models/account-model/account-model.type'
+import { PrepareChangeCryptosStatement } from './prepare-change-cryptos-statement'
 
 type PrepareChangeCryptosType = {
   user: AccountModel
@@ -17,14 +19,31 @@ type PrepareChangeCryptosOutputType = {
 
 export const PrepareChangeCryptos = (params: PrepareChangeCryptosType): PrepareChangeCryptosOutputType => {
   let userUpdated: AccountModel = params.user
-  console.log(params.qtdValue)
+  let statementUpdated: StatementModel
+
   if (parseFloat(params.qtdValue) > 0) {
+    // Verifica se o valor da crypto existente na conta ´maior ou igual ao digitado no input
     if ((parseFloat(params.user[`${params.cryptoOutputName}s`]) >= params.cryptoOutputValue)) {
+      // Decrementa o valor da crypto que vai ser trocada
+      const cryptoOutputResult = parseFloat(params.user[`${params.cryptoOutputName}s`]) - params.cryptoOutputValue
+      // Incrementa o valor da crypto que foi adquirida
+      const cryptoInputResult = parseFloat(params.user[`${params.cryptoInputName}s`]) + params.cryptoInputValue
+
+      statementUpdated = PrepareChangeCryptosStatement({
+        inputCryptoName: params.cryptoInputName,
+        outputCryptoName: params.cryptoOutputName,
+        inputCryptoValue: params.cryptoInputValue.toString(),
+        outputCryptoValue: params.cryptoOutputValue.toString(),
+        statementType: params.cryptoInputName === 'bitcoin' ? 'BRITA-BITCOIN' : 'BICOIN-BRITA'
+      })
+
       userUpdated = {
         ...params.user,
-        [`${params.cryptoOutputName}s`]: parseFloat(params.user[`${params.cryptoOutputName}s`]) - params.cryptoOutputValue,
-        [`${params.cryptoInputName}s`]: parseFloat(params.user[`${params.cryptoInputName}s`]) + params.cryptoInputValue
+        [`${params.cryptoOutputName}s`]: cryptoOutputResult,
+        [`${params.cryptoInputName}s`]: cryptoInputResult,
+        statement: [...params.user.statement, statementUpdated]
       }
+
       return {
         message: `${params.cryptoOutputName}s trocadas com sucesso`,
         approved: true,

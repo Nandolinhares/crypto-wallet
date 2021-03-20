@@ -11,7 +11,8 @@ const initialState = {
     username: '',
     money: '',
     bitcoins: '',
-    britas: ''
+    britas: '',
+    statement: []
   }
 }
 

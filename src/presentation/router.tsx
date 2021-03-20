@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 // Components
-import { Login, Signup, Profile } from './pages'
+import { Login, Signup, Profile, StatementPage } from './pages'
 import { Header } from './components'
 import PrivateRoute from './routes/private-route'
 import DisconnectedRoute from './routes/disconnected-route'
@@ -29,6 +29,7 @@ const Router: React.FC<Props> = ({ makeApp }: Props) => {
               <DisconnectedRoute exact authed={user !== null} path="/login" component={Login} />
               <DisconnectedRoute exact authed={user !== null} path="/signup" component={Signup} />
               <PrivateRoute authed={user !== null} path='/profile' component={Profile} />
+              <PrivateRoute authed={user !== null} path='/statement' component={StatementPage} />
             </Switch>
           </BrowserRouter>
         </Container>
