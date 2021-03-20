@@ -2,29 +2,27 @@ import React, { useState, useEffect } from 'react'
 // MUI
 import { Paper } from '@material-ui/core'
 // Styles
-import { useStyles } from './buy-sell-crypto-card-styles'
+import { useStyles } from './change-crypto-card-styles'
 import SelectCrypto from './select-crypto/select-crypto.component'
-import SelectBuySellButton from './select-buy-sell-button/select-buy-sell-button.component'
-import InputMoney from './input-money/input-money.component'
+import InputMoney from '../buy-sell-crypto-card/input-money/input-money.component'
 // Helpers
 import { ConvertRealToCrypto } from '../../helpers/crypto-helpers/convert-real-to-crypto'
 import { ConvertCryptoStringToCoin } from '../../helpers/crypto-helpers/convert-crypto-string-to-coin'
-import { PrepareCheckout } from '../../helpers/prepare-checkout/prepare-checkout'
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 // Actions
-import { CheckoutUser } from '../../redux/actions/user-actions'
+import { ConvertCryptoToCrypto } from '../../helpers/crypto-helpers/convert-crypto-to-crypto'
+import { PrepareChangeCryptos } from '../../helpers/prepare-change-cryptos/prepare-change-cryptos'
 import DialogCheckout from '../dialog-checkout/dialog-checkout.component'
+import { CheckoutUser } from '../../redux/actions/user-actions'
 
-const BuySellCryptoCard: React.FC = () => {
+const ChangeCryptoCard: React.FC = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
   // Global State
   const { user } = useSelector(state => state.user)
   const { bitcoin, brita } = useSelector(state => state.crypto)
   // Local States
-  // Compra ou Venda
-  const [stateSelected, setStateSelected] = useState<number>(0)
   // Bitcoin ou Brita
   const [cryptoSelected, setCryptoSelected] = useState<string>('bitcoin')
   // Valor total do input
@@ -56,21 +54,35 @@ const BuySellCryptoCard: React.FC = () => {
   // Checkout
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    const checkoutInformation = PrepareCheckout({
-      cryptoName: cryptoSelected,
-      cryptoPrice: cryptoSelected === 'bitcoin' ? bitcoin : brita,
-      qtdValue,
-      stateSelected,
-      user
+    const { cryptoOutputValue, cryptoInputValue } = ConvertCryptoToCrypto({
+      money: qtdValue,
+      cryptoToConvert: cryptoSelected === 'bitcoin' ? bitcoin : brita,
+      cryptoDefault: cryptoSelected === 'bitcoin' ? brita : bitcoin
     })
-    // Actions to make Checkout
-    dispatch(CheckoutUser(checkoutInformation.data))
-    // Dialog of successful or error
-    setOpenDialogInformation({
-      error: checkoutInformation.error,
-      message: checkoutInformation.message,
-      open: true
+
+    const { message, approved, userUpdated } = PrepareChangeCryptos({
+      user,
+      cryptoOutputName: cryptoSelected === 'bitcoin' ? 'bitcoin' : 'brita',
+      cryptoInputName: cryptoSelected === 'bitcoin' ? 'brita' : 'bitcoin',
+      cryptoOutputValue,
+      cryptoInputValue,
+      qtdValue
     })
+
+    if (approved) {
+      dispatch(CheckoutUser(userUpdated))
+      setOpenDialogInformation({
+        error: false,
+        message,
+        open: true
+      })
+    } else {
+      setOpenDialogInformation({
+        error: true,
+        message,
+        open: true
+      })
+    }
   }
 
   return (
@@ -79,14 +91,11 @@ const BuySellCryptoCard: React.FC = () => {
         <SelectCrypto cryptoSelected={cryptoSelected} setCryptoSelected={setCryptoSelected} />
         <section className={classes.wrapSection}>
           <h2>{cryptoSelected}</h2>
-          {/* Select Buy or Sell */}
-          <SelectBuySellButton stateSelected={stateSelected} setStateSelected={setStateSelected} />
-          {/* Value to buy a crypto */}
           <InputMoney
             qtdValue={qtdValue}
-            stateSelected={stateSelected}
             handleInputMoneyChange={handleInputMoneyChange}
-            handleSubmit={handleSubmit} />
+            handleSubmit={handleSubmit}
+            changeCrypto={true} />
           <div className={classes.bitcoinRealTime}>
             {/* Applying mask to show bitcoins and Britas */}
             <h3>Valor em Bitcoin {ConvertCryptoStringToCoin(cryptoMirror.bitcoin.toString())}</h3>
@@ -101,4 +110,4 @@ const BuySellCryptoCard: React.FC = () => {
   )
 }
 
-export default BuySellCryptoCard
+export default ChangeCryptoCard

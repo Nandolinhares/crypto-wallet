@@ -21,8 +21,8 @@ const SelectCrypto: React.FC<Props> = ({ cryptoSelected, setCryptoSelected }: Pr
     <FormControl component="fieldset">
       <p className={classes.radioTitle}>Criptomoedas</p>
       <RadioGroup aria-label="gender" name="gender1" value={cryptoSelected} onChange={handleChange} row>
-        <FormControlLabel className={classes.formControlLabel} value="bitcoin" control={<GreenRadio />} label="Bitcoin" />
-        <FormControlLabel className={classes.formControlLabel} value="brita" control={<GreenRadio />} label="Brita" />
+        <FormControlLabel className={classes.formControlLabel} value="bitcoin" control={<GreenRadio />} label="Bitcoin para Brita" />
+        <FormControlLabel className={classes.formControlLabel} value="brita" control={<GreenRadio />} label="Brita para Bitcoin" />
       </RadioGroup>
     </FormControl>
   )

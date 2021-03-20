@@ -7,9 +7,10 @@ import { CssTextField, useStyles } from './input-money-styles'
 
 type Props = {
   qtdValue: any
-  stateSelected: number
+  stateSelected?: number
   handleInputMoneyChange: any
   handleSubmit: any
+  changeCrypto?: boolean
 }
 
 const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
@@ -30,7 +31,19 @@ const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
         // error={errorState.error}
         // helperText={errorState.error ? errorState.helperText : ''}
       />
-      <Button type="submit" variant="contained" color="primary" className={classes.buttonAction}>{props.stateSelected === 0 ? 'COMPRAR' : 'VENDER'}</Button>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        className={classes.buttonAction}
+      >
+        {!props.changeCrypto
+          ? (
+              props.stateSelected === 0 ? 'COMPRAR' : 'VENDER'
+            )
+          : 'TROCAR CRIPTOMOEDAS'
+        }
+      </Button>
     </form>
   )
 }

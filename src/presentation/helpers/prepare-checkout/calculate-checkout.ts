@@ -13,11 +13,12 @@ export const CalculateResult = (params: CheckoutParams, operator: string): Check
   const cryptoValue = (ConvertRealToCrypto(params.qtdValue, params.cryptoPrice)).toString()
   // Operação de venda
   if (operator === '+') {
-    if (parseFloat(params.user[`${params.cryptoName}`]) >= parseFloat(cryptoValue)) {
+    if (parseFloat(params.user[`${params.cryptoName}s`]) >= parseFloat(cryptoValue)) {
       // Atribui valor em reais
       moneyUpdated = (parseFloat(params.user.money) + parseFloat(params.qtdValue)).toString()
       // Subtrai os valores na cryptomoeda
       cryptoUpdated = (parseFloat(params.user[`${params.cryptoName}s`]) - parseFloat(cryptoValue)).toString()
+      message = `${params.qtdValue} reais em ${params.cryptoName}s vendidos com sucesso!`
       // Operação de compra
     } else {
       error = true
@@ -29,6 +30,7 @@ export const CalculateResult = (params: CheckoutParams, operator: string): Check
       moneyUpdated = (parseFloat(params.user.money) - parseFloat(params.qtdValue)).toString()
       // Atribui os valores em cryptomoeda
       cryptoUpdated = (parseFloat(params.user[`${params.cryptoName}s`]) + parseFloat(cryptoValue)).toString()
+      message = `${params.qtdValue} reais em ${params.cryptoName}s comprados com sucesso!`
     } else {
       error = true
       message = 'Você não tem dinheiro suficiente'
