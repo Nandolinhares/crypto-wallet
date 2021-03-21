@@ -29,7 +29,7 @@ const DialogCheckout: React.FC<Props> = ({ ...props }: Props) => {
         </DialogContentText>
       </DialogContent> */}
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} className="close-dialog" color="primary">
           Ok
         </Button>
       </DialogActions>

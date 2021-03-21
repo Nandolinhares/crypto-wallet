@@ -22,7 +22,7 @@ const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
         className={classes.inputMoney}
         placeholder="Quantidade em dinheiro"
         variant="outlined"
-        id="custom-css-outlined-input"
+        id={props.changeCrypto ? 'change-crypto-input' : 'buy-sell-input'}
         onChange={props.handleInputMoneyChange}
         value={props.qtdValue || ''}
         type="number"
@@ -36,6 +36,7 @@ const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
         variant="contained"
         color="primary"
         className={classes.buttonAction}
+        id={props.stateSelected === 0 ? 'buttonSubmitBuy' : (props.stateSelected === 1 ? 'buttonSubmitSell' : 'buttonChangeSubmit')}
       >
         {!props.changeCrypto
           ? (

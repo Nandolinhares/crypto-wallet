@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "testFiles": [
+    "signup/*.js",
+    "login/*js",
+    "profile/*js"
+  ]
+}

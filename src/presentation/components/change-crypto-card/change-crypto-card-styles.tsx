@@ -4,6 +4,7 @@ export const useStyles = makeStyles({
   paper: {
     padding: 28,
     backgroundColor: '#373536',
+    height: 485,
     '& h2': {
       color: '#fff',
       textTransform: 'uppercase',

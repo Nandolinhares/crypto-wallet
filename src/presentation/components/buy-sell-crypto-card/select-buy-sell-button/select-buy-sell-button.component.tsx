@@ -20,8 +20,8 @@ const SelectBuySellButton: React.FC<Props> = ({ stateSelected, setStateSelected 
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction className={classes.buttonSelected} label="COMPRA" />
-      <BottomNavigationAction className={classes.buttonSelected} label="VENDA" />
+      <BottomNavigationAction className={classes.buttonSelected} id="select-buy-state" label="COMPRA" />
+      <BottomNavigationAction className={classes.buttonSelected} id="select-sell-state" label="VENDA" />
     </BottomNavigation>
   )
 }
