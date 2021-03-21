@@ -10,14 +10,14 @@ const StarterContent: React.FC = () => {
   const classes = useStyles()
   return (
       <Grid container spacing={2} className={classes.gridContainer}>
-        <Grid item md={6}>
+        <Grid item md={6} data-testid="home-text">
           <h2>A maior plataforma de <strong className="strong">criptomoedas</strong> da América Latina</h2>
           <p>Acesso, segurança e diversificação para você e mais de 2 milhões de clientes.</p>
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} data-testid="bitcoin-card">
          <CryptoCard value="Bitcoin" />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} data-testid="brita-card">
          <CryptoCard value="Brita" />
         </Grid>
       </Grid>
