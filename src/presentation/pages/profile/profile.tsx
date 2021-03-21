@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
           <hr className={classes.hr} />
           <div className={classes.statementDiv} data-testid="negociacoes">
             <h2>NEGOCIAÇÕES</h2>
-            <Button variant="outlined" component={Link} to="/statement" className={classes.buttonStatement}>MEUS EXTRATOS</Button>
+            <Button variant="outlined" component={Link} to="/statement" id="button-statement" className={classes.buttonStatement}>MEUS EXTRATOS</Button>
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>

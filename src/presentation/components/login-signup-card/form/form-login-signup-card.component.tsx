@@ -72,7 +72,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
           to="/">
             PÁGINA PRINCIPAL
         </Button>
-        <Button type="submit" data-testid="login-signup-button" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
+        <Button type="submit" id="button-login-signup" data-testid="login-signup-button" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
       </div>
     </form>
   )
