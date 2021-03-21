@@ -1,6 +1,6 @@
 import React from 'react'
 // MUI
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from '@material-ui/core'
+import { Button, Dialog, DialogActions, DialogTitle } from '@material-ui/core'
 
 type Props = {
   openDialogInformation: any
@@ -22,12 +22,12 @@ const DialogCheckout: React.FC<Props> = ({ ...props }: Props) => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      {/* <DialogTitle id="alert-dialog-title">{props.openDialogInformation.message}</DialogTitle> */}
-      <DialogContent>
+      <DialogTitle data-testid="dialog-message" id="alert-dialog-title">{props.openDialogInformation.message}</DialogTitle>
+      {/* <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          <h2>{props.openDialogInformation.message}</h2>
+          <h2 data-testid="dialog-message" ></h2>
         </DialogContentText>
-      </DialogContent>
+      </DialogContent> */}
       <DialogActions>
         <Button onClick={handleClose} color="primary">
           Ok

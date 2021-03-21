@@ -17,7 +17,7 @@ const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
   const classes = useStyles()
 
   return (
-    <form onSubmit={props.handleSubmit} className={classes.sectionInput}>
+    <form data-testid="submit-input-money" onSubmit={props.handleSubmit} className={classes.sectionInput}>
       <CssTextField
         className={classes.inputMoney}
         placeholder="Quantidade em dinheiro"
@@ -27,7 +27,7 @@ const InputMoney: React.FC<Props> = ({ ...props }: Props) => {
         value={props.qtdValue || ''}
         type="number"
         required
-        defaultValue={0}
+        inputProps={{ 'data-testid': 'input-money' }}
         // error={errorState.error}
         // helperText={errorState.error ? errorState.helperText : ''}
       />

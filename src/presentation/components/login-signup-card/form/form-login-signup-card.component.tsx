@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // RRD
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // MUI
 import { Button } from '@material-ui/core'
 import { useStyles, CssTextField } from './form-login-signup-styles'
@@ -15,6 +15,7 @@ type Props = {
 
 const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
   const classes = useStyles()
+  const history = useHistory()
   // States
   const [username, setUsername] = useState<string>('')
   const [errorState, setErrorState] = useState<InputErrorType>({
@@ -46,11 +47,11 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
       })
     } else {
       // Verify if is Login or signup and make
-      VerifyLoginSignup({ value, username, setErrorState })
+      VerifyLoginSignup({ value, username, setErrorState, history })
     }
   }
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off">
+    <form data-testid="form" onSubmit={handleSubmit} noValidate autoComplete="off">
       <CssTextField
         className={classes.username}
         label="Usuário"
@@ -61,6 +62,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
         value={username || ''}
         error={errorState.error}
         helperText={errorState.error ? errorState.helperText : ''}
+        inputProps={{ 'data-testid': `${value}-input`, title: errorState.error ? errorState.helperText : `${value}-input` }}
       />
       <div className={classes.divButtons}>
         <Button
@@ -70,7 +72,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
           to="/">
             PÁGINA PRINCIPAL
         </Button>
-        <Button type="submit" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
+        <Button type="submit" data-testid="login-signup-button" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
       </div>
     </form>
   )

@@ -15,7 +15,7 @@ const LoginSignupCard: React.FC<Props> = ({ value }: Props) => {
   const classes = useStyles()
   return (
     <>
-      <Paper elevation={3} className={classes.paper}>
+      <Paper elevation={3} className={classes.paper} data-testid="login-signup-paper">
         <h2>{value === 'login' ? 'Bem Vindo de volta' : 'Cadastre-se'}</h2>
         {/* Form cadastrar / login */}
         <FormLoginSignupCard value={value} />

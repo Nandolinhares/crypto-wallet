@@ -16,7 +16,7 @@ const HeaderDisconnected: React.FC = () => {
       </li>
       <li>
         <Link to="/signup">
-          <Button variant="outlined" className="buttonCadastrar">
+          <Button variant="outlined" className="buttonCadastrar" data-testid="signup-header">
             CADASTRAR
           </Button>
         </Link>

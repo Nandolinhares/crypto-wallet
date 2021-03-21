@@ -5,6 +5,7 @@ type Props = {
   value: string
   username: string
   setErrorState: any
+  history: any
 }
 
 export const VerifyLoginSignup = ({ ...props }: Props): void => {
@@ -12,7 +13,8 @@ export const VerifyLoginSignup = ({ ...props }: Props): void => {
     // If signup and username doesnt exists in localStorage
     case (props.value === 'signup' && localStorage.getItem(props.username) === null):
       makeCreateAccountFactory().create(props.username)
-      location.reload()
+      props.history.go(0)
+      props.history.replace('/profile')
       break
     // If login and username exists in localStorage
     case (props.value === 'login' && localStorage.getItem(props.username) !== null):
