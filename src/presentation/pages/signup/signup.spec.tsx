@@ -29,7 +29,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('App', () => {
+describe('Signup', () => {
   afterEach(cleanup)
   test('should Signup paper have a title and form components', () => {
     const { sut } = makeSut()

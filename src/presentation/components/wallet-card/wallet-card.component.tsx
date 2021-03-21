@@ -22,11 +22,11 @@ const WalletCard: React.FC<Props> = ({ type, value }: Props) => {
         setCoinName('Reais')
         break
       case 'bitcoin':
-        setNewValue(ConvertCryptoStringToCoin(value, 'BTC'))
+        setNewValue(ConvertCryptoStringToCoin(value, 'BTC', 10))
         setCoinName('Bitcoins')
         break
       default:
-        setNewValue(ConvertCryptoStringToCoin(value, 'USD'))
+        setNewValue(ConvertCryptoStringToCoin(value, 'USD', 10))
         setCoinName('Britas')
     }
   }, [value])

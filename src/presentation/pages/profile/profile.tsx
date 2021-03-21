@@ -18,13 +18,13 @@ const Profile: React.FC = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={12}>
           {/* Dashboard */}
-          <section className={classes.dashboard}>
+          <section className={classes.dashboard} data-testid="dashboard">
             <WalletCard type="money" value={user.money} />
             <WalletCard type="bitcoin" value={user.bitcoins} />
             <WalletCard type="brita" value={user.britas} />
           </section>
           <hr className={classes.hr} />
-          <div className={classes.statementDiv}>
+          <div className={classes.statementDiv} data-testid="negociacoes">
             <h2>NEGOCIAÇÕES</h2>
             <Button variant="outlined" component={Link} to="/statement" className={classes.buttonStatement}>MEUS EXTRATOS</Button>
           </div>

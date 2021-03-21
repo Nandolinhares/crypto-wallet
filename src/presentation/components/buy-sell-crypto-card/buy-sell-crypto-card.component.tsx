@@ -93,8 +93,8 @@ const BuySellCryptoCard: React.FC = () => {
             handleSubmit={handleSubmit} />
           <div className={classes.bitcoinRealTime}>
             {/* Applying mask to show bitcoins and Britas */}
-            <h3>Valor em Bitcoin {ConvertCryptoStringToCoin(cryptoMirror.bitcoin.toString())}</h3>
-            <h3>Valor em Brita {ConvertCryptoStringToCoin(cryptoMirror.brita.toString())}</h3>
+            <h3>Valor em Bitcoin {ConvertCryptoStringToCoin(cryptoMirror.bitcoin.toString(), 'BRL', 20)}</h3>
+            <h3>Valor em Brita {ConvertCryptoStringToCoin(cryptoMirror.brita.toString(), 'BRL', 20)}</h3>
           </div>
         </section>
         <section>
