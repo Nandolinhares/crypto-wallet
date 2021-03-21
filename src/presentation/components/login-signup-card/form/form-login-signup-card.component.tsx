@@ -50,7 +50,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
     }
   }
   return (
-    <form onSubmit={handleSubmit} noValidate autoComplete="off">
+    <form data-testid="form" onSubmit={handleSubmit} noValidate autoComplete="off">
       <CssTextField
         className={classes.username}
         label="Usuário"
@@ -61,6 +61,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
         value={username || ''}
         error={errorState.error}
         helperText={errorState.error ? errorState.helperText : ''}
+        inputProps={{ 'data-testid': `${value}-input`, title: errorState.error ? errorState.helperText : `${value}-input` }}
       />
       <div className={classes.divButtons}>
         <Button
@@ -70,7 +71,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
           to="/">
             PÁGINA PRINCIPAL
         </Button>
-        <Button type="submit" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
+        <Button type="submit" data-testid="login-signup-button" variant="contained" className={classes.buttonSubmit}>{value === 'login' ? 'ENTRAR' : 'CADASTRAR'}</Button>
       </div>
     </form>
   )
