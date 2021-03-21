@@ -50,7 +50,7 @@ Depois disso basta clicar e executar ambos os testes como eu mostro no vídeo de
 Para acessar o storybook contenbto os componentes sepradamente:
 https://604d069b9fac2a0021f2247d-ceutrkhtzl.chromatic.com/?path=/story/example-introduction--page
 
-## Integração contínuo
+## Integração contínua
 O Bitcoin Wallet foi aplicado integração contínua com o Chromatic usando o Github Actions
 https://www.chromatic.com/builds?appId=604d069b9fac2a0021f2247d
 
