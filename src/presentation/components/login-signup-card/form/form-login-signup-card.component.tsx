@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // RRD
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // MUI
 import { Button } from '@material-ui/core'
 import { useStyles, CssTextField } from './form-login-signup-styles'
@@ -15,6 +15,7 @@ type Props = {
 
 const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
   const classes = useStyles()
+  const history = useHistory()
   // States
   const [username, setUsername] = useState<string>('')
   const [errorState, setErrorState] = useState<InputErrorType>({
@@ -46,7 +47,7 @@ const FormSignupCard: React.FC<Props> = ({ value }: Props) => {
       })
     } else {
       // Verify if is Login or signup and make
-      VerifyLoginSignup({ value, username, setErrorState })
+      VerifyLoginSignup({ value, username, setErrorState, history })
     }
   }
   return (

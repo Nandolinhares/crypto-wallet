@@ -2,6 +2,7 @@ import React from 'react'
 import { RenderResult, cleanup, fireEvent, waitFor } from '@testing-library/react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
+import faker from 'faker'
 
 import Login from './login'
 // Redux Helper
@@ -9,11 +10,13 @@ import { renderWithProviders } from '../../helpers/test/redux-provider.helper'
 
 type SutTypes = {
   sut: RenderResult
+  inputValue: string
 }
 
 const history = createMemoryHistory({ initialEntries: ['/login'] })
 
 const makeSut = (): SutTypes => {
+  const inputValue = faker.internet.userName()
   const sut = renderWithProviders(
     <Router history={history}>
       <Login />
@@ -21,7 +24,8 @@ const makeSut = (): SutTypes => {
   )
 
   return {
-    sut
+    sut,
+    inputValue
   }
 }
 
@@ -41,16 +45,16 @@ describe('App', () => {
   })
 
   test('should input show correct value', async () => {
-    const { sut } = makeSut()
+    const { sut, inputValue } = makeSut()
     const loginInput = sut.getByTestId('login-input') as HTMLInputElement
-    fireEvent.input(loginInput, { target: { value: 'teste' } })
-    expect(loginInput.value).toBe('teste')
+    fireEvent.input(loginInput, { target: { value: inputValue } })
+    expect(loginInput.value).toBe(inputValue)
   })
 
   test('should returns error if user doesnt exists', async () => {
-    const { sut } = makeSut()
+    const { sut, inputValue } = makeSut()
     const loginInput = sut.getByTestId('login-input') as HTMLInputElement
-    fireEvent.input(loginInput, { target: { value: 'teste' } })
+    fireEvent.input(loginInput, { target: { value: inputValue } })
     const form = sut.getByTestId('form')
     fireEvent.submit(form)
     await waitFor(() => form)

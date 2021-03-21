@@ -20,7 +20,7 @@ const HeaderLogged: React.FC = () => {
         </Link>
       </li>
       <li>
-        <Button variant="outlined" className="buttonCadastrar" onClick={handleLogout}>
+        <Button variant="outlined" className="buttonCadastrar" onClick={handleLogout} data-testid="logout">
           SAIR
         </Button>
       </li>
