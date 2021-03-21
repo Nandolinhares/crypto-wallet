@@ -43,4 +43,14 @@ describe('Profile', () => {
     fireEvent.input(inputMoney, { target: { value: inputValue } })
     expect(inputMoney.value).toBe(inputValue.toString())
   })
+
+  test('should dialog show error message about negative values', () => {
+    const { sut } = makeSut()
+    const inputMoney = sut.getByTestId('input-money') as HTMLInputElement
+    fireEvent.input(inputMoney, { target: { value: -8 } })
+    const submit = sut.getByTestId('submit-input-money')
+    fireEvent.submit(submit)
+    const dialogMessage = sut.getByTestId('dialog-message')
+    expect(dialogMessage.textContent).toBe('Você não pode inserir valores negativos')
+  })
 })
