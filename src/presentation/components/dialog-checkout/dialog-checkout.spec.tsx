@@ -44,7 +44,7 @@ describe('Profile', () => {
     const dialogMessage = sut.getByTestId('dialog-message')
     expect(dialogMessage.textContent).toBe('200 bitcoin compradas com sucesso')
   })
-
+  // Teste
   test('should dialog show bitcoins compradas com sucesso', () => {
     const { sut } = makeSut('200 bitcoin vendidas com sucesso')
     const dialogMessage = sut.getByTestId('dialog-message')
