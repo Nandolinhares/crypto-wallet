@@ -54,6 +54,8 @@ Para executar o teste completo da aplicação, basta digitar:
 Para executar os testes de integração basta digitar no terminal:
 ### `yarn cypress`
 
+![image](https://user-images.githubusercontent.com/15971419/111983908-729f7d00-8ae9-11eb-8cfc-1528932508eb.png)
+
 Depois disso basta clicar e executar ambos os testes como eu mostro no vídeo de apresentação
 
 ## Storybook
