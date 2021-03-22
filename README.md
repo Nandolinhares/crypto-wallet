@@ -35,6 +35,16 @@ Além disso, permite realizar as transações entre bitcoins e britas. Por fim, 
 
 - O usuário pode visualizar seu extrato financeiro
 
+## Arquitetura
+
+O projeto possui uma arquitetura desacoplada, onde o foco é reaproveitar funcionalidades e facilitar o crescimento, manutenção ou troca de framework frontend caso u dia seja necessário. EEsta arquitetura é dividida em camadas: Domain, Data, Infra, Main e Presentation.
+
+- Domain: Camada responsável por conter as abstrações do projeto. As interfaces dos casos de uso, os modelos principais e os erros criados.
+- Data: Camada responsável por conter as classes que implementam as interfaces construídas no Domain, a definição das interfaces de protocolos http, entre outros.
+- Infra: Camada responsável por conter as ferramentas, classes que vão implementar as interfaces dos protocolos. Por exemplo: Axios, localStorage, que foram usados no projeto.
+- Main: Camadas responsável por ser o ponto de entrada do React, contendo o index.tsx e contem os factories usados no React.
+- Presentatiom: Camada responsável exclusivamente para o framework, no caso o React. Dentro dela estão os componentes, as pages, router e tudo mais. 
+
 ## Testes Unitários
 
 Para executar o teste completo da aplicação, basta digitar:
